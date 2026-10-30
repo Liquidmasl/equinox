@@ -176,6 +176,7 @@ The supported families are `hvac`, `preset`, `fan`, `swing`, and `swing_horizont
 | `show_hvac_action`        | no       | `true`               | Show the HVAC action icon (heating, idle, ...).                                                                                       |
 | `show_events`             | no       | `true`               | Show VTherm event and status message icons (window, presence, boost, ...).                                                            |
 | `show_menu`               | no       | `true`               | Show the menu button (regulation dashboard, boost, history).                                                                          |
+| `border_glow`             | no       | `true`               | `liquid_glow` only: show the glowing left/right card edges; set to `false` to keep only the action icon glow.                         |
 
 All `show_*`, `hide_lock_button` and `disable_name` options are grouped in the
 **Elements** tab of the visual editor. Rows that end up empty collapse, so for

@@ -277,6 +277,7 @@
     "show_hvac_action": "Show HVAC action icon",
     "show_events": "Show event icons",
     "show_menu": "Show menu",
+    "border_glow": "Border glow",
     "border_glow_on_action": "Borders glow only while HVAC is active",
     "tabs": {
       "general": "General",

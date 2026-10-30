@@ -486,11 +486,20 @@ export class EquinoxCardEditor extends LitElement implements LovelaceCardEditor 
 
     if (this._config.theme === "liquid_glow") {
       schema.push({
-        name: "border_glow_on_action",
+        name: "border_glow",
         selector: {
           boolean: {}
         }
       });
+
+      if (this._config.border_glow !== false) {
+        schema.push({
+          name: "border_glow_on_action",
+          selector: {
+            boolean: {}
+          }
+        });
+      }
     }
 
     return schema;

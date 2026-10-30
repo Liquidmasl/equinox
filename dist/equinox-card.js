@@ -9312,6 +9312,7 @@ var Ss = "Equinox", Cs = "custom:equinox-card", ws = "equinox-card", Ts = "equin
 			show_hvac_action: "HVAC-Aktionssymbol anzeigen",
 			show_events: "Ereignissymbole anzeigen",
 			show_menu: "Menü anzeigen",
+			border_glow: "Randleuchten",
 			border_glow_on_action: "Die Ränder leuchten nur bei aktiver HVAC-Aktion",
 			tabs: {
 				general: "Allgemein",
@@ -9911,6 +9912,7 @@ var Ss = "Equinox", Cs = "custom:equinox-card", ws = "equinox-card", Ts = "equin
 			show_hvac_action: "Show HVAC action icon",
 			show_events: "Show event icons",
 			show_menu: "Show menu",
+			border_glow: "Border glow",
 			border_glow_on_action: "Borders glow only while HVAC is active",
 			tabs: {
 				general: "General",
@@ -13712,6 +13714,7 @@ var cc = ["flat", "liquid_glow"], lc = [
 	show_hvac_action: !0,
 	show_events: !0,
 	show_menu: !0,
+	border_glow: !0,
 	border_glow_on_action: !0
 };
 // src/equinox-card-editor.ts
@@ -14104,10 +14107,13 @@ var vc = class extends D {
 				mode: "slider",
 				unit_of_measurement: "%"
 			} }
-		}), this._config.theme === "liquid_glow" && i.push({
+		}), this._config.theme === "liquid_glow" && (i.push({
+			name: "border_glow",
+			selector: { boolean: {} }
+		}), this._config.border_glow !== !1 && i.push({
 			name: "border_glow_on_action",
 			selector: { boolean: {} }
-		}), i;
+		})), i;
 	}
 	_elementsSchema() {
 		return [
@@ -19100,6 +19106,12 @@ var fl = o`
   /* No glow when HVAC is off or the entity is unavailable. */
   :host([theme="liquid_glow"]) ha-card[tone="off"]::before,
   :host([theme="liquid_glow"]) ha-card[tone="off"]::after {
+    display: none;
+  }
+
+  /* Border glow disabled entirely; the action icon keeps its own glow. */
+  :host([theme="liquid_glow"][no-border-glow]) ha-card::before,
+  :host([theme="liquid_glow"][no-border-glow]) ha-card::after {
     display: none;
   }
 
@@ -27741,7 +27753,7 @@ var du = class extends D {
 		this._regulationActiveSectionId = e, this._regulationMobileSectionMenuOpen = !1, this._pushRegulationDialogState(e);
 	}
 	willUpdate() {
-		this.setAttribute("theme", this.config?.theme ?? "liquid_glow"), this.toggleAttribute("light", !this.hass?.themes?.darkMode), this.toggleAttribute("border-glow-on-action", !!this.config?.border_glow_on_action);
+		this.setAttribute("theme", this.config?.theme ?? "liquid_glow"), this.toggleAttribute("light", !this.hass?.themes?.darkMode), this.toggleAttribute("no-border-glow", this.config?.border_glow === !1), this.toggleAttribute("border-glow-on-action", !!this.config?.border_glow_on_action);
 	}
 	updated() {
 		(this._activeDialog === "menu" || this._activeDialog === "regulation") && this._ensureRegulationDashboard();

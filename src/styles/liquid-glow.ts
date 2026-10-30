@@ -258,6 +258,12 @@ export const liquidGlowStyles = css`
     display: none;
   }
 
+  /* Border glow disabled entirely; the action icon keeps its own glow. */
+  :host([theme="liquid_glow"][no-border-glow]) ha-card::before,
+  :host([theme="liquid_glow"][no-border-glow]) ha-card::after {
+    display: none;
+  }
+
   /* When glow_on_action_only is set, hide glow unless there is active heating/cooling. */
   :host([theme="liquid_glow"][border-glow-on-action]) ha-card:not([active-action])::before,
   :host([theme="liquid_glow"][border-glow-on-action]) ha-card:not([active-action])::after {

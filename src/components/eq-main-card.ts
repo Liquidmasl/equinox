@@ -2467,6 +2467,7 @@ export class EquinoxMainCard extends LitElement {
   protected willUpdate(): void {
     this.setAttribute("theme", this.config?.theme ?? DEFAULT_THEME);
     this.toggleAttribute("light", !this.hass?.themes?.darkMode);
+    this.toggleAttribute("no-border-glow", this.config?.border_glow === false);
     this.toggleAttribute("border-glow-on-action", !!this.config?.border_glow_on_action);
   }
 
