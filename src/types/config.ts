@@ -69,6 +69,7 @@ export interface EquinoxCardConfig {
   additional_dashboards?: EquinoxAdditionalDashboards;
   state_icons_layout?: EquinoxLayoutOrientation;
   show_power_value?: boolean;
+  border_glow?: boolean;
   border_glow_on_action?: boolean;
 }
 
@@ -88,6 +89,7 @@ export const DEFAULT_CONFIG = {
   additional_dashboards: DEFAULT_ADDITIONAL_DASHBOARDS,
   state_icons_layout: "horizontal",
   show_power_value: true,
+  border_glow: true,
   border_glow_on_action: true
 } satisfies Pick<
   EquinoxCardConfig,
@@ -102,6 +104,7 @@ export const DEFAULT_CONFIG = {
   | "additional_dashboards"
   | "state_icons_layout"
   | "show_power_value"
+  | "border_glow"
   | "border_glow_on_action"
 >;
 

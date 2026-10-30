@@ -166,6 +166,7 @@ The supported families are `hvac`, `preset`, `fan`, `swing`, and `swing_horizont
 | `additional_dashboards`   | no       | `auto`               | Regulation dashboard mode: `auto`, `custom`, or `disabled`.                                                                           |
 | `state_icons_layout`      | no       | `horizontal`         | State icon layout for `classic`/`compact`: `horizontal` or `vertical`; `thin` is always horizontal.                                   |
 | `show_power_value`        | no       | `true`               | Show the numeric percentage beside the valve/power gauge; set to `false` for the gauge alone.                                         |
+| `border_glow`             | no       | `true`               | `liquid_glow` only: show the glowing left/right card edges; set to `false` to keep only the action icon glow.                         |
 
 For Versatile Thermostat entities, the main-card power indicator is a live
 percentage gauge: valve-controlled thermostats show `valve_open_percent`, while
